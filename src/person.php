@@ -1,3 +1,26 @@
 <?php
-echo 'wtsk aho';
+class Person
+{
+    private $name = '';
+
+    public function __construct($name)
+    {
+        $this->setName($name);
+    }
+
+    public function __destruct()
+    {
+        echo 'さようなら<br>';
+    }
+
+    public function setName($name)
+    {
+        $this->name = trim($name);
+    }
+
+    public function sayHello()
+    {
+        echo 'こんにちは、' . $this->name . 'です。<br>';
+    }
+}
 ?>
