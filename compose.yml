@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  php:
+    image: php:fpm
+    volumes:
+      - ./log:/log
+      - ./src:/usr/share/nginx/html
+      - ./php.ini:/usr/local/etc/php/php.ini
+
+  nginx:
+    image: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./log:/log
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - php
